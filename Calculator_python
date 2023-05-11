@@ -1,0 +1,19 @@
+num1=float(input('enter the number1:  '))
+num2=float(input('enter the number2:  '))
+opr=input('enter symbols like +,-,*,/,^')
+
+def calculator(n1,n2,opr):
+    if opr=='+':
+        result =n1+n2
+    elif opr== '-':
+        result =n1-n2
+    elif opr== '*':
+        result =n1*n2
+    elif opr== '/':
+        result =n1/n2
+    elif (opr== '^' or '**'):
+        result =n1**n2
+    return result
+print (num1,opr,num2)
+result=calculator(num1,num2,opr)
+print('Your output is::', result)
