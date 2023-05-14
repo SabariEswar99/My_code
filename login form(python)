@@ -1,0 +1,66 @@
+from tkinter import *
+from tkinter import messagebox
+
+icon=Tk()
+icon.title('Login')
+icon.geometry('500x500+400+200')
+icon.configure(background='white')
+icon.resizable(False,False)
+
+def signin():
+    UserName1=user.get()
+    Password=pwd.get()
+
+    if UserName1=='python' and Password=='123' :
+        screen=Toplevel(icon)
+        screen.title('output')
+        screen.geometry('500x500+400+200')
+        screen.configure(background='white')
+
+        Label(screen,text='You successfully logged in',background='yellow',font=('calibri(Body)',60,'bold')).pack(expand=True)
+        screen.mainloop()
+
+def enter(e):
+    user.delete(0,'end')
+def leave(e):
+    name=user.get()
+    if name=='':
+        user.insert(0,'UserName1')
+
+frame=Frame(icon,width=400,height=400,background='white')##first use anycolor to identify
+frame.place(x=20,y=20)
+
+heading=Label(frame,text='Sign In',foreground='blue',background='white',font=30)
+heading.place(x=150,y=5)
+
+user=Entry(frame,width=40,foreground='blue',background='white',border=0,font=10)
+user.place(x=40,y=70)
+user.insert(0,'UserName1')
+user.bind('<FocusIn>',enter)
+user.bind('<FocusOut>',leave)
+
+Frame(frame,width=300,height=3,background='black').place(x=40,y=102)
+
+def enter(e):
+    pwd.delete(0,'end')
+def leave(e):
+    name=pwd.get()
+    if name=='':
+        user.insert(0,'UserName1')
+
+pwd=Entry(frame,width=40,background='white',foreground='blue',border=0,font=10)
+pwd.place(x=40,y=130)
+pwd.insert(0,'Password')
+pwd.bind('<FocusIn>',enter)
+pwd.bind('<FocusOut>',leave)
+Frame(frame,width=300,height=3,background='black').place(x=40,y=160)
+
+Button(frame,width=30,text='Sign in',background='white',foreground='blue',border=1,command=signin).place(x=45,y=180)
+label=Label(frame,text="Don't have account?",background='white',foreground='black',font=4)
+label.place(x=40,y=220)
+
+signup=Button(frame,width=8,text='sign up',border=0,background='white',foreground='blue',cursor='hand2')
+signup.place(x=220,y=220)
+
+
+icon.mainloop()
